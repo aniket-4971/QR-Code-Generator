@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="lay">
+       <p> QR CODE GENERATOR</p>
+    </div>
+    
+    <div class="outer">
+        <p>Enter your Text or URL</p>
+       <input type="text" placeholder="Text / URL" id = "txt" >
+       <button id="clear" onclick="CLR()">Clear</button>
+       <div class="imgBox" id = "imgBox">
+           <img src="" id="image">
+       </div>
+       <button onclick="imgLoc()">Generate QR Code</button>
+    </div>
+    <div class="lay2">
+        <p> Made with ♥ by Aniket.</p>
+     </div>
+    
+    <script>
+        
+        function imgLoc(){
+            var loc = document.getElementById("txt");
+            if(loc.value.length>0){
+                var IMG = document.getElementById("image");
+            IMG.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + loc.value;
+            document.getElementById("imgBox").classList.add("imgAfter");   
+            } 
+        }
+        function CLR(){
+            var loc = document.getElementById("txt");
+            loc.value = "";
+            document.getElementById("imgBox").classList.remove("imgAfter");   
+        }
+        
+    </script>
+     
+</body>
+</html>
